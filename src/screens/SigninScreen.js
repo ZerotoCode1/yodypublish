@@ -22,14 +22,6 @@ export default function SigninScreen() {
   const { userInfo } = state;
   const submitHandler = async (e) => {
     e.preventDefault();
-    if(email==""){
-   window.alert("Vui lòng nhập email")
-    }
-    if(password==""){
-      window.alert("Vui lòng nhập password")
-       }
-
- 
     try {
       const { data } = await Axios.post('https://apiwenandapp.onrender.com/api/users/signin', {
         email,
@@ -62,7 +54,7 @@ export default function SigninScreen() {
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
-        
+             required
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
@@ -70,7 +62,7 @@ export default function SigninScreen() {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
-         
+            required
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>

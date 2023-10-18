@@ -25,18 +25,6 @@ export default function SignupScreen() {
   
   const submitHandler = async (e) => {
     e.preventDefault();
-    if(name==""){
-      window.alert("vui lòng nhập tên")
-      return
-    }
-    if(email==""){
-      window.alert("vui lòng nhập email")
-      return
-    }
-    if(password==""){
-      window.alert("vui lòng nhập mật khẩu")
-      return
-    }
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
       return;
@@ -79,7 +67,7 @@ export default function SignupScreen() {
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
-            
+            required
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
@@ -87,13 +75,14 @@ export default function SignupScreen() {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
-            
+            required
             onChange={(e) => setPassword(e.target.value)}
           />
           <Form.Group className="mb-3" controlId="confirmPassword">
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
               type="password"
+              required
               onChange={(e) => setConfirmPassword(e.target.value)}
               
             />

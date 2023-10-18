@@ -87,20 +87,6 @@ function ProductScreen() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (comment=='' && rating=='') {
-      window.alert("Không được để trống")
-      return;
-    }
-    if(comment==""){
-     window.alert("Vui lòng nhập comment")
-     return
-    }
-    if(rating==""){
-      window.alert("vui lòng chọn rating")
-      return
-     }
-
-    
     try {
       const { data } = await axios.post(
         `https://apiwenandapp.onrender.com/api/products/${product._id}/reviews`,
@@ -122,7 +108,7 @@ function ProductScreen() {
         behavior: 'smooth',
         top: reviewsRef.current.offsetTop,
       });
-      window.alert("Đã gửi đánh giá")
+     
     } catch (error) {
       window.alert("Bạn chỉ được đánh giá 1 lần")
       dispatch({ type: 'CREATE_FAIL' });
@@ -243,6 +229,7 @@ function ProductScreen() {
                 <Form.Label>Rating</Form.Label>
                 <Form.Select
                   aria-label="Rating"
+                  required
                   value={rating}
                   onChange={(e) => setRating(e.target.value)}
                 >
@@ -262,6 +249,7 @@ function ProductScreen() {
                 <Form.Control
                   as="textarea"
                   placeholder="Leave a comment here"
+                  required
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
                 />

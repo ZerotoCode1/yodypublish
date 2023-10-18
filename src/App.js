@@ -87,7 +87,9 @@ function App() {
               </Button>
 
               <LinkContainer to="/">
-                <Navbar.Brand>amazona</Navbar.Brand>
+                <Navbar.Brand>
+                  <img style={{width:110,height:45 ,padding:0}} src='https://cdn.haitrieu.com/wp-content/uploads/2022/05/Logo-Yody.png'/>
+                </Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
