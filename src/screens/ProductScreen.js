@@ -16,7 +16,6 @@ import { getError } from '../utils';
 import { Store } from '../Store';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { toast } from 'react-toastify';
-
 const reducer = (state, action) => {
   switch (action.type) {
     case 'REFRESH_PRODUCT':

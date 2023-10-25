@@ -44,7 +44,7 @@ function Product(props) {
             Out of stock
           </Button>
         ) : (
-          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+         <div className='center-button'> <Button className='stylebutton' onClick={() => addToCartHandler(product)}>Add to cart</Button></div>
         )}
       </Card.Body>
     </Card>

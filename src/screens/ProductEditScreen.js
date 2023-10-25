@@ -112,9 +112,9 @@ export default function ProductEditScreen() {
      },
       });
       socket.emit('getproduct',"123")
-      socket.on('productData',function (data){
-             console.log(data);
-      })
+      // socket.on('productData',function (data){
+      //        console.log(data);
+      // })
       // await axios.put(
       //   `https://apiwenandapp.onrender.com/api/products/${productId}`,
       //   {

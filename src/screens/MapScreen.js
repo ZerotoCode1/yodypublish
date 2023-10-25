@@ -45,9 +45,11 @@ export default function MapScreen() {
   useEffect(() => {
     const fetch = async () => {
       const { data } = await axios('/api/keys/google', {
+       
         headers: { Authorization: `BEARER ${userInfo.token}` },
       });
-      setGoogleApiKey(data.key);
+      console.log("gfd"+data.key);
+      setGoogleApiKey("44f740ec2a76b1de905c96c8beefb1883a70802b");
       getUserCurrentLocation();
     };
 

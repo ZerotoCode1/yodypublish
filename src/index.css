@@ -125,3 +125,19 @@ main {
 button.thumbnail {
   padding: 0;
 }
+@media (max-width: 391px) {
+  .card {
+    margin: 0 auto;
+    width: 320px;
+  }
+  .center-button{
+    text-align: center;
+  }
+  .stylebutton{
+    width: 180px;
+  }
+  .card-img-top{
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
