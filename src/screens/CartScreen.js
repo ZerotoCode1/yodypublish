@@ -33,7 +33,7 @@ export default function CartScreen() {
   };
 
   const checkoutHandler = () => {
-    navigate('https://apiwenandapp.onrender.com/signin?redirect=/shipping');
+    navigate('/signin?redirect=/shipping');
   };
 
   return (
