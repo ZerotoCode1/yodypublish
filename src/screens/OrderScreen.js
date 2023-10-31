@@ -54,6 +54,7 @@ export default function OrderScreen() {
 
   const params = useParams();
   const { id: orderId } = params;
+  console.log(orderId);
   const navigate = useNavigate();
 
   const [
@@ -119,8 +120,10 @@ export default function OrderScreen() {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
         const { data } = await axios.get(`https://apiwenandapp.onrender.com/api/orders/${orderId}`, {
-          headers: { authorization: `Bearer ${userInfo.token}` },
+      
+        headers: { authorization: `Bearer ${userInfo.token}` },
         });
+        console.log(data);
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err) });

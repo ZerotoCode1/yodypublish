@@ -5,8 +5,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { Store } from '../Store';
-
 export default function PaymentMethodScreen() {
+  
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
@@ -22,11 +22,18 @@ export default function PaymentMethodScreen() {
       navigate('/shipping');
     }
   }, [shippingAddress, navigate]);
+  console.log(state);
   const submitHandler = (e) => {
     e.preventDefault();
     ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
     localStorage.setItem('paymentMethod', paymentMethodName);
-    navigate('/placeorder');
+    if(paymentMethodName =='ZaloPay'){
+      navigate('/zalopay');
+    }else{
+      navigate('/placeorder');
+    }
+
+   
   };
   return (
     <div>
@@ -57,6 +64,16 @@ export default function PaymentMethodScreen() {
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
           </div>
+          <div className="mb-3">
+          <Form.Check
+            type="radio"
+            id="ZaloPay"
+            label="ZaloPay"
+            value="ZaloPay"
+            checked={paymentMethodName === 'ZaloPay'}
+            onChange={(e) => setPaymentMethod(e.target.value)}
+          />
+        </div>
           <div className="mb-3">
             <Button type="submit">Continue</Button>
           </div>

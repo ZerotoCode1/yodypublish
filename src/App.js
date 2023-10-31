@@ -36,6 +36,9 @@ import UserEditScreen from './screens/UserEditScreen';
 import MapScreen from './screens/MapScreen';
 import ForgetPasswordScreen from './screens/ForgetPasswordScreen';
 import ResetPasswordScreen from './screens/ResetPasswordScreen';
+import ZalopayScreens from './screens/ZalopayScreens';
+import ZaloPayScrreen from './screens/ZalopayScreens';
+import VnpayScreen from './screens/VnpayScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -212,6 +215,14 @@ function App() {
                 }
               ></Route>
               <Route
+              path="/vnpay/:id"
+              element={
+                <ProtectedRoute>
+                  <VnpayScreen />
+                </ProtectedRoute>
+              }
+            ></Route>
+              <Route
                 path="/orderhistory"
                 element={
                   <ProtectedRoute>
@@ -219,6 +230,16 @@ function App() {
                   </ProtectedRoute>
                 }
               ></Route>
+              <Route
+              path="/zalopay"
+                element={
+                  <ProtectedRoute>
+                    <ZaloPayScrreen />
+                  </ProtectedRoute>
+                }
+              >
+              
+              </Route>
               <Route
                 path="/shipping"
                 element={<ShippingAddressScreen />}
