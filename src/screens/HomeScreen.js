@@ -60,7 +60,7 @@ function HomeScreen() {
       <Helmet>
         <title>Yody.com</title>
       </Helmet>
-      <h1>Featured Products</h1>
+      <h1>Anh/Chị Hr đợi chút để server khởi động fontend mới goi API được </h1>
       <div className="products">
         {loading ? (
           <LoadingBox />
