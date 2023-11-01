@@ -12,7 +12,8 @@ import { getError } from '../utils';
 import { Store } from '../Store';
 import CheckoutSteps from '../components/CheckoutSteps';
 import LoadingBox from '../components/LoadingBox';
-
+import io from "socket.io-client";
+const socket = io.connect("https://socketio-rhix.onrender.com");
 const reducer = (state, action) => {
   switch (action.type) {
     case 'CREATE_REQUEST':
@@ -65,6 +66,7 @@ export default function PlaceOrderScreen() {
           },
         }
       );
+      socket.emit('getproduct')
       ctxDispatch({ type: 'CART_CLEAR' });
       dispatch({ type: 'CREATE_SUCCESS' });
       localStorage.removeItem('cartItems');
