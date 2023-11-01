@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Store } from '../Store';
 import React, { useContext, useEffect, useReducer, useState } from 'react';
+import Row from "react-bootstrap/Row";
 function VnpayScreen() {
     const [vnorrder,setvnorder]=useState()
     const [banking,setbanking]=useState()
@@ -61,7 +62,9 @@ function VnpayScreen() {
         >
             Click để chuyển sang thanh toán
         </div>
-        <Form.Group className="mb-3" controlId="rating">
+       
+        <Form.Group  className="mb-3" controlId="rating">
+        <Row>
         <Form.Label>Chọn ngân hàng thanh toán</Form.Label>
         <Form.Select
           aria-label="Rating"
@@ -75,6 +78,8 @@ function VnpayScreen() {
           <option value="MasterCard">MasterCard</option>
           <option value="JCB">JCB</option>
         </Form.Select>
+        </Row>
+        
       </Form.Group>
     </div>
   )

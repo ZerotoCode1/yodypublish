@@ -125,6 +125,17 @@ main {
 button.thumbnail {
   padding: 0;
 }
+.anh{
+  position: relative;
+  overflow: hidden;
+}
+.hover-img:hover{
+  height: 100%;
+  transform: scale(1.2);
+}
+.hover-img{
+  transition: transform 0.8s;
+}
 @media (max-width: 391px) {
   .card {
     margin: 0 auto;
