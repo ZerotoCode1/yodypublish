@@ -113,6 +113,12 @@ function ProductScreen() {
       dispatch({ type: 'CREATE_FAIL' });
     }
   };
+  const myref = useRef();
+   const handleVideoEnded=()=>{
+    const video = myref.current
+    video.currentTime = 0; 
+    video.play();
+   }
   return loading ? (
     <LoadingBox />
   ) : error ? (
@@ -120,7 +126,15 @@ function ProductScreen() {
   ) : (
     <div>
       <Row>
-        <Col md={6}>
+     
+      <Col md={3} style={{overflow:'hidden'}}>
+    
+     <video  ref={myref} className='myVideo' style={{width:"100%",height:"100%",marginTop:-70}} controls autoPlay onEnded={() => handleVideoEnded()} >
+     <source  src={product.vdeo} type="video/mp4" />
+     </video>
+    
+      </Col>
+        <Col md={3}>
           <img
             className="img-large"
             src={selectedImage || product.image}

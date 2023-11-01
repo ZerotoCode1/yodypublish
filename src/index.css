@@ -136,6 +136,21 @@ button.thumbnail {
 .hover-img{
   transition: transform 0.8s;
 }
+/* Ẩn nút play */
+.myVideo video::-webkit-media-controls-start-playback-button,
+.video-container video::-webkit-media-controls-play-button {
+  display: none;
+}
+.back-bg{
+  background: url("https://bizweb.dktcdn.net/100/438/408/themes/919724/assets/background-header.png?1698813703985");
+}
+#basic-nav-dropdown{
+  color: #11006F;
+}
+
+#admin-nav-dropdown{
+  color: #11006F;
+}
 @media (max-width: 391px) {
   .card {
     margin: 0 auto;
@@ -152,3 +167,5 @@ button.thumbnail {
     min-height: 400px;
   }
 }
+
+

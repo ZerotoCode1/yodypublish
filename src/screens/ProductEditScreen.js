@@ -65,7 +65,7 @@ export default function ProductEditScreen() {
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
-
+ const [vdeo,setVdeo]=useState('')
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -75,6 +75,7 @@ export default function ProductEditScreen() {
         setSlug(data.slug);
         setPrice(data.price);
         setImage(data.image);
+        setVdeo(data.vdeo)
         setImages(data.images);
         setCategory(data.category);
         setCountInStock(data.countInStock);
@@ -109,6 +110,7 @@ export default function ProductEditScreen() {
          brand,
          countInStock,
          description,
+         vdeo
      },
       });
       socket.emit('getproduct',"123")
@@ -281,6 +283,16 @@ export default function ProductEditScreen() {
               required
             />
           </Form.Group>
+
+          <Form.Group className="mb-3" controlId="Video">
+          <Form.Label>Video</Form.Label>
+          <Form.Control
+            value={vdeo}
+            onChange={(e) => setVdeo(e.target.value)}
+            required
+          />
+        </Form.Group>
+
           <div className="mb-3">
             <Button disabled={loadingUpdate} type="submit">
               Update
